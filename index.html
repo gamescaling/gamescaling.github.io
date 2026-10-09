@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scaling in Games</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="alternate icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="description" content="Scaling in Games: Continued Pre-Training for Embodied Agents in Diverse Virtual Worlds">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">GameScaling</a>
+    <nav class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#demo-mixture">Mixture Demo</a>
+      <a href="#demo-frontier">Frontier Demo</a>
+      <a href="#findings">Findings</a>
+      <a href="#testtime">Test-Time</a>
+      <a href="#citation">Citation</a>
+    </nav>
+    <a class="nav-cta" href="assets/paper.pdf" target="_blank">Paper</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ======================= HERO ======================= -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <video src="videos/promo/hero_bg.mp4" poster="videos/promo/hero_bg.jpg" autoplay muted loop playsinline></video>
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="logos">
+      <img src="assets/logos/mihoyo.svg" alt="miHoYo">
+      <img src="assets/logos/tsinghua.svg" alt="Tsinghua University">
+      <img src="assets/logos/ucas.svg" alt="UCAS">
+      <img src="assets/logos/hku.svg" alt="HKU">
+    </div>
+    <h1 class="title"><span class="title-display">Scaling in Games</span><span class="title-sub">Continued Pre-Training for Embodied Agents in Diverse Virtual Worlds</span></h1>
+
+    <p class="authors">
+      <span>Kuan Zhang<sup>1,2,*,&Dagger;</sup></span>
+      <span>Yukun Chen<sup>1,3,*,&Dagger;</sup></span>
+      <span>Zhihao Yang<sup>1,3,*,&Dagger;</sup></span>
+      <span>Yue Su<sup>4</sup></span>
+      <span>Xiangnan Wu<sup>3</sup></span>
+      <span>Zirong Chen<sup>2</sup></span>
+      <span>Run Luo<sup>1,5,&Dagger;</sup></span>
+      <span>Jinkun Hou<sup>6</sup></span>
+      <span>Tao Tan<sup>1</sup></span>
+      <span>Yinhe Zheng<sup>1,&dagger;</sup></span>
+      <span>Yiming Li<sup>2,&dagger;</sup></span>
+    </p>
+    <p class="affils">
+      <span><sup>1</sup>miHoYo Honkai AI R&amp;D Team</span>
+      <span><sup>2</sup>College AI, Tsinghua University</span>
+      <span><sup>3</sup>University of Chinese Academy of Sciences</span>
+      <span><sup>4</sup>MMLab, The University of Hong Kong</span>
+      <span><sup>5</sup>National University of Singapore</span>
+      <span><sup>6</sup>Peking University</span>
+    </p>
+    <p class="affils note"><sup>*</sup>Equal contribution &nbsp;&nbsp; <sup>&dagger;</sup>Corresponding author &nbsp;&nbsp; <sup>&Dagger;</sup>Work done while interning at miHoYo</p>
+    <p class="affils note mail">Correspondence: <a href="mailto:yimingli9702@mail.tsinghua.edu.cn">yimingli9702@mail.tsinghua.edu.cn</a>, <a href="mailto:yinhe.zheng@mihoyo.com">yinhe.zheng@mihoyo.com</a></p>
+
+    <div class="buttons">
+      <a class="btn" href="assets/paper.pdf" target="_blank"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z M14 2v6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Paper</a>
+      <a class="btn disabled" href="#" aria-disabled="true"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>arXiv <em>soon</em></a>
+      <a class="btn disabled" href="#" aria-disabled="true"><svg viewBox="0 0 24 24"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Code <em>soon</em></a>
+      <a class="btn disabled" href="#" aria-disabled="true"><span class="hf">🤗</span>Models <em>soon</em></a>
+    </div>
+
+    <div class="promo">
+      <video class="promo-video" src="videos/promo/promo.mp4" poster="videos/promo/promo.jpg" autoplay muted loop playsinline controls preload="metadata"></video>
+      <button class="promo-sound" type="button" aria-label="Turn sound on"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Sound on</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================= TEASER ======================= -->
+<section class="teaser-sec">
+  <div class="wrap">
+    <figure class="teaser">
+      <img src="assets/img/teaser.jpg" alt="One physical world vs. diverse virtual worlds">
+    </figure>
+  </div>
+</section>
+
+<!-- ======================= STATS ======================= -->
+<section class="stats-band">
+  <div class="wrap stats">
+    <div class="stat"><b>120</b><span>training configurations</span></div>
+    <div class="stat"><b>0.8B–27B</b><span>four Qwen3.5 backbones</span></div>
+    <div class="stat"><b>50–1,600 h</b><span>six gameplay budgets</span></div>
+    <div class="stat"><b>S1–S5</b><span>five diversity mixtures</span></div>
+    <div class="stat"><b>4</b><span>gameplay benchmarks</span></div>
+    <div class="stat"><b>2.2×10<sup>22</sup></b><span>training FLOPs</span></div>
+  </div>
+</section>
+
+<!-- ======================= OVERVIEW ======================= -->
+<section id="overview" class="section">
+  <div class="wrap narrow">
+    <p class="eyebrow">Overview</p>
+    <h2>Does scaling carry over from one physical world to many virtual ones?</h2>
+    <p class="lead">
+      Scaling data, diversity and model capacity has improved embodied learning in physical environments, where experience stays grounded in shared physical laws.
+      Virtual worlds break that assumption: every game brings its own visuals, dynamics, controls and objectives.
+      We run a controlled study of <b>continued pre-training (CPT)</b> along three axes, data volume, diversity and model size, and evaluate on gameplay benchmarks that move from in-corpus worlds to unseen distant ones.<br>The training corpus spans 80 games, and the five mixtures S1&ndash;S5 are almost entirely <b>3D, embodied</b> worlds.
+    </p>
+    <div class="tiers">
+      <div class="tier"><span class="tier-tag t1">In-corpus &middot; 3D</span><b>MCU</b><p>30 Minecraft tasks across embodied, combat and GUI skills. Minecraft is in the training corpus.</p></div>
+      <div class="tier"><span class="tier-tag t1">In-corpus &middot; 3D</span><b>ViZDoom</b><p>Single-scenario shooting in DOOM, which is also in the training corpus.</p></div>
+      <div class="tier"><span class="tier-tag t2">Unseen · related</span><b>OmniGameArena</b><p>Seven unseen 3D embodied worlds, whose actions have counterparts in training.</p></div>
+      <div class="tier"><span class="tier-tag t3">Unseen · distant</span><b>GameWorld</b><p>Mostly 2D / 2.5D games: a different view and control regime from the 3D embodied worlds seen in training.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DEMO 1 ======================= -->
+<section id="demo-mixture" class="section alt">
+  <div class="wrap">
+    <p class="eyebrow">Demo I · One world vs. many</p>
+    <h2>Base model vs. Minecraft-only S1 vs. balanced S3</h2>
+    <p class="lead">
+      Same backbone, same 1,600 h budget, different mixtures. S1 trains on Minecraft gameplay only; S3 cuts Minecraft to 27% and fills the rest with other games.
+      Each video is one rollout of the same task, and the label under it reports the result of that rollout: success or failure on MCU, task progress on the other benchmarks.
+      The table below gives the benchmark averages reported in the paper.
+    </p>
+
+    <div class="controls">
+      <div class="ctl-rows">
+        <div class="ctl-row"><span class="ctl-label">Benchmark</span><div class="seg" id="mix-bench" role="tablist" aria-label="Benchmark"></div></div>
+        <div class="ctl-row">
+          <span class="ctl-label">Task</span><div class="seg" id="mix-case" role="tablist" aria-label="Task"></div>
+          <span class="ctl-label">Model</span><div class="seg" id="mix-size" role="tablist" aria-label="Model size"></div>
+        </div>
+      </div>
+      <button class="play-all" data-group="mix-grid" type="button">▶ Play all</button>
+    </div>
+
+    <p class="bench-caption" id="mix-bench-caption"></p>
+    <div class="video-grid cols-3" id="mix-grid"></div>
+
+    <div class="mini-board">
+      <div class="mini-board-head">
+        <span>Paper results · average time-paused score (%) at 1,600 h · <b id="mix-board-size"></b></span>
+      </div>
+      <div class="mini-table-wrap"><table class="mini-table" id="mix-table"></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DEMO 2 ======================= -->
+<section id="demo-frontier" class="section">
+  <div class="wrap">
+    <p class="eyebrow">Demo II · Frontier comparison</p>
+    <h2>Frontier models pause; the world doesn't</h2>
+    <p class="lead">
+      In the <b>time-paused</b> setting the game waits for each decision, isolating reasoning competence.
+      In the <b>real-time</b> setting the game keeps running while the model thinks, so latency becomes part of the score.
+      Frontier models take 4–24 s per step; GameScaling takes 0.13–0.69 s.
+      Each video is one rollout of the same task, and the label under it reports the result of that rollout: success or failure on MCU (a 30 s budget when paused, 3 min in real time), score or task progress on the other benchmarks.
+      The chart below gives the benchmark averages reported in the paper.
+    </p>
+
+    <div class="controls">
+      <div class="ctl-rows">
+        <div class="ctl-row"><span class="ctl-label">Benchmark</span><div class="seg" id="fr-bench" role="tablist" aria-label="Benchmark"></div></div>
+        <div class="ctl-row">
+          <span class="ctl-label">Task</span><div class="seg" id="fr-case" role="tablist" aria-label="Task"></div>
+          <span class="ctl-label">Setting</span><div class="seg mode" id="fr-mode" role="tablist" aria-label="Interaction setting"></div>
+        </div>
+      </div>
+      <button class="play-all" data-group="fr-grid" type="button">▶ Play all</button>
+    </div>
+
+    <p class="bench-caption" id="fr-bench-caption"></p>
+    <div class="video-grid cols-4" id="fr-grid"></div>
+
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <h3 id="fr-chart-title">All models</h3>
+          <p class="muted" id="fr-chart-sub"></p>
+        </div>
+        <div class="legend">
+          <span><i class="sw sw-prop"></i>Proprietary</span>
+          <span><i class="sw sw-open"></i>Open-source</span>
+          <span><i class="sw sw-gs"></i>GameScaling (ours)</span>
+          <span><i class="sw sw-ghost"></i><span id="fr-ghost-label">Time-paused</span></span>
+        </div>
+      </div>
+      <div class="bars" id="fr-bars"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FINDINGS ======================= -->
+<section id="findings" class="section alt">
+  <div class="wrap">
+    <p class="eyebrow">Key findings</p>
+    <h2>What scales, and where it stops</h2>
+    <div class="findings">
+      <article class="finding">
+        <span class="num">01</span>
+        <h3>Data, diversity and size each help different worlds</h3>
+        <p>More data improves in-corpus play. Diversity improves transfer to related worlds, with limited gains in distant ones. Larger models learn faster but, under single-world training, generalize worse to distant worlds.</p>
+      </article>
+      <article class="finding">
+        <span class="num">02</span>
+        <h3>Interface phase, then world phase</h3>
+        <p>Early training brings broad cross-world gains as the model learns the keyboard–mouse interface. Later gains narrow to in-corpus and related worlds. A three-factor scaling law relates validation loss to data volume, diversity and model size.</p>
+      </article>
+      <article class="finding">
+        <span class="num">03</span>
+        <h3>Small and fast wins in real time</h3>
+        <p>GameScaling is competitive with Minecraft specialists and frontier models in 3D worlds, and scores highest when the world does not pause. Persistent gaps in distant worlds suggest CPT alone is not enough for a generalist agent.</p>
+      </article>
+      <article class="finding">
+        <span class="num">04</span>
+        <h3>More steps help, but only after pre-training</h3>
+        <p>Raising the MCU step cap from 600 to 3,000 lifts GameScaling-9B-S1 from 50.9% to 69.3% and the 0.8B model from 42.3% to 59.3%, with no plateau; the untrained Qwen3.5 backbones stay at 4.0% and 0%.</p>
+      </article>
+    </div>
+
+    <figure class="paper-fig">
+      <img src="assets/img/fig_benchmark_grid_4x5_model_axis.png" alt="Benchmark scaling grid" loading="lazy">
+      <figcaption><b>Benchmark performance across data budget, model size and data diversity.</b> Rows: MCU, ViZDoom, OmniGameArena, GameWorld. Columns: 50 to 1,600 hours. Colors: mixtures S1–S5 and the base model; each curve spans the 0.8B–27B backbones.</figcaption>
+    </figure>
+    <figure class="paper-fig">
+      <img src="assets/img/fig2_loss_grid_4x5_fits.png" alt="Loss scaling grid" loading="lazy">
+      <figcaption><b>Loss scaling across data volume, model size and data diversity.</b> Training loss and three-level validation loss for the 0.8B–27B backbones; the last column compares the fitted scaling law with observed loss.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ======================= TEST-TIME SCALING ======================= -->
+<section id="testtime" class="section">
+  <div class="wrap narrow">
+    <p class="eyebrow">Test-time scaling</p>
+    <h2>More steps help &mdash; but only after pre-training</h2>
+    <p class="lead">
+      The standard MCU protocol caps every rollout at 600 steps, and all MCU numbers above use that cap.
+      Raising it to 3,000 steps, with no further training, lifts <b>GameScaling-9B-S1</b> from 50.9% to <b>69.3%</b> and <b>GameScaling-0.8B-S1</b> from 42.3% to <b>59.3%</b>, roughly log-linearly and with no sign of a plateau.
+      The two curves stay about 10 points apart at every budget, so extra steps help a small model about as much as a large one.
+      The untrained Qwen3.5 backbones do not scale this way: Qwen3.5-9B rises only from about 2% to 4.0%, and Qwen3.5-0.8B completes no task at any budget.
+      Continued pre-training raises both the level and the test-time slope.
+    </p>
+    <figure class="paper-fig">
+      <img src="assets/img/fig_mcu_test_time_scaling.png" alt="Test-time scaling on MCU: cumulative success rate against the maximum steps allowed" loading="lazy">
+      <figcaption><b>Test-time scaling on MCU.</b> Cumulative success rate of GameScaling-0.8B-S1 and GameScaling-9B-S1 at 1,600&nbsp;h (solid) and their untrained Qwen3.5 backbones (dashed) over the 150 rollouts, as a function of the maximum steps allowed, on a logarithmic axis. The standard protocol uses 600 steps.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ======================= CITATION ======================= -->
+<section id="citation" class="section alt">
+  <div class="wrap narrow">
+    <p class="eyebrow">Citation</p>
+    <h2>BibTeX</h2>
+    <div class="bib">
+      <button class="copy" type="button" id="copy-bib">Copy</button>
+<pre id="bibtex">@article{zhang2026scaling,
+  title   = {Scaling in Games: Continued Pre-Training for Embodied Agents in Diverse Virtual Worlds},
+  author  = {Zhang, Kuan and Chen, Yukun and Yang, Zhihao and Su, Yue and Wu, Xiangnan and
+             Chen, Zirong and Luo, Run and Hou, Jinkun and Tan, Tao and Zheng, Yinhe and Li, Yiming},
+  journal = {arXiv preprint},
+  year    = {2026}
+}</pre>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>Correspondence: <a href="mailto:yimingli9702@mail.tsinghua.edu.cn">yimingli9702@mail.tsinghua.edu.cn</a>, <a href="mailto:yinhe.zheng@mihoyo.com">yinhe.zheng@mihoyo.com</a></p>
+    <p class="muted">© 2026 GameScaling team.</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
