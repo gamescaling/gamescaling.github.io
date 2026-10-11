@@ -371,3 +371,6 @@ h3 { margin: 0 0 8px; font-size: 18px; letter-spacing: -.01em; }
   .stat { border-left: 0; }
   .section { padding: 60px 0; }
 }
+
+ul.lead { padding-left: 1.2em; }
+ul.lead li { margin-bottom: 10px; }
