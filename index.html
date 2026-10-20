@@ -3,12 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scaling in Games</title>
+<title>Scaling in Games: Continued Pre-Training for Embodied Agents in Diverse Virtual Worlds</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="alternate icon" href="assets/favicon.ico">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="description" content="Scaling in Games: Continued Pre-Training for Embodied Agents in Diverse Virtual Worlds">
+<link rel="canonical" href="https://gamescaling.github.io/">
+<meta name="citation_title" content="Scaling in Games: Continued Pre-Training for Embodied Agents in Diverse Virtual Worlds">
+<meta name="citation_author" content="Zhang, Kuan">
+<meta name="citation_author" content="Chen, Yukun">
+<meta name="citation_author" content="Yang, Zhihao">
+<meta name="citation_author" content="Su, Yue">
+<meta name="citation_author" content="Wu, Xiangnan">
+<meta name="citation_author" content="Chen, Zirong">
+<meta name="citation_author" content="Luo, Run">
+<meta name="citation_author" content="Hou, Jinkun">
+<meta name="citation_author" content="Tan, Tao">
+<meta name="citation_author" content="Zheng, Yinhe">
+<meta name="citation_author" content="Li, Yiming">
+<meta name="citation_publication_date" content="2026">
+<meta name="citation_pdf_url" content="https://gamescaling.github.io/assets/paper.pdf">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -79,6 +94,12 @@
       <a class="btn" href="https://github.com/THUSI-Lab/GameScaling" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Code</a>
       <a class="btn" href="https://huggingface.co/THUSI-Lab/GameScaling" target="_blank" rel="noopener"><span class="hf">🤗</span>Models</a>
     </div>
+
+    <section id="abstract" class="paper-abstract" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">Abstract</h2>
+      <p class="paper-year">2026</p>
+      <p>Scaling data, diversity and model capacity has improved embodied learning in physical environments, where diverse experiences remain grounded in shared physical laws. Whether these gains extend to virtual worlds with different visual styles, dynamics, controls, and objectives remains unclear. We investigate this question through a controlled study of continued pre-training (CPT) across three axes: data volume, diversity, and model size. Our 120 training configurations span four model sizes from 0.8B to 27B, six data budgets from 50 to 1,600 hours, and five mixtures ranging from Minecraft-only data to diverse multi-world corpora. We assess performance and generalization using three-level validation losses and gameplay benchmarks from in-corpus worlds to unseen worlds. Our results show: (1) more data improves in-corpus performance, diversity improves transfer to related worlds with limited gains in distant worlds, and model size improves data efficiency but generalizes worse to distant worlds under single-world training; (2) we observe an early interface phase with broad cross-world benefits and a later world phase with gains narrowed to in-corpus and related worlds, and fit an empirical scaling law relating validation loss to data volume, diversity and model size; and (3) our models are competitive with Minecraft specialists and frontier models in 3D worlds, and perform best in real-time settings. However, the limits of imitation and persistent gaps in distant worlds suggest that building generalist embodied agents requires richer training stages beyond continued pre-training.</p>
+    </section>
 
     <div class="promo">
       <video class="promo-video" src="videos/promo/promo.mp4" poster="videos/promo/promo.jpg" autoplay muted loop playsinline controls preload="metadata"></video>
@@ -272,12 +293,12 @@
     <h2>BibTeX</h2>
     <div class="bib">
       <button class="copy" type="button" id="copy-bib">Copy</button>
-<pre id="bibtex">@article{zhang2026scaling,
-  title   = {Scaling in Games: Continued Pre-Training for Embodied Agents in Diverse Virtual Worlds},
-  author  = {Zhang, Kuan and Chen, Yukun and Yang, Zhihao and Su, Yue and Wu, Xiangnan and
-             Chen, Zirong and Luo, Run and Hou, Jinkun and Tan, Tao and Zheng, Yinhe and Li, Yiming},
-  journal = {arXiv preprint},
-  year    = {2026}
+<pre id="bibtex">@article{zhang-scaling-games,
+  title = {Scaling in Games: Continued Pre-Training for Embodied Agents in Diverse Virtual Worlds},
+  author = {Zhang, Kuan and Chen, Yukun and Yang, Zhihao and Su, Yue and Wu, Xiangnan and Chen, Zirong and Luo, Run and Hou, Jinkun and Tan, Tao and Zheng, Yinhe and Li, Yiming},
+journal={URL: https://gamescaling.github.io/},
+year={2026}
+
 }</pre>
     </div>
   </div>
