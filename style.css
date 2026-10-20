@@ -125,16 +125,6 @@ a:hover { text-decoration: underline; }
 .btn em { font-style: normal; font-weight: 500; font-size: 11px; background: rgba(255,255,255,.18); padding: 1px 7px; border-radius: 999px; }
 .btn.disabled { background: rgba(255,255,255,.14); color: #fff; border: 1px solid rgba(255,255,255,.28); cursor: default; backdrop-filter: blur(6px); }
 
-/* ---------- paper abstract ---------- */
-.paper-abstract {
-  max-width: 1000px; margin: 32px auto 0; padding: 24px clamp(20px, 3vw, 32px);
-  text-align: left; background: rgba(7,9,15,.82);
-  border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius);
-}
-.paper-abstract h2 { margin: 0 0 4px; font-size: 24px; color: #fff; }
-.paper-abstract p { margin: 0; font-size: 16px; line-height: 1.75; color: rgba(255,255,255,.9); }
-.paper-abstract .paper-year { margin-bottom: 12px; font-size: 13px; color: rgba(255,255,255,.65); }
-
 /* promo video sits inside the hero, over the gameplay wall */
 .promo { position: relative; max-width: 880px; margin: 40px auto 0; }
 .promo-video {

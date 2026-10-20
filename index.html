@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261020-abstract">
+<link rel="stylesheet" href="style.css?v=20261020-abstract-page">
 </head>
 <body>
 
@@ -90,16 +90,11 @@
 
     <div class="buttons">
       <a class="btn" href="assets/paper.pdf" target="_blank"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z M14 2v6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Paper</a>
+      <a class="btn" href="abstract.html">Abstract</a>
       <a class="btn disabled" href="#" aria-disabled="true"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>arXiv <em>soon</em></a>
       <a class="btn" href="https://github.com/THUSI-Lab/GameScaling" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Code</a>
       <a class="btn" href="https://huggingface.co/THUSI-Lab/GameScaling" target="_blank" rel="noopener"><span class="hf">🤗</span>Models</a>
     </div>
-
-    <section id="abstract" class="paper-abstract" aria-labelledby="abstract-title">
-      <h2 id="abstract-title">Abstract</h2>
-      <p class="paper-year">2026</p>
-      <p>Scaling data, diversity and model capacity has improved embodied learning in physical environments, where diverse experiences remain grounded in shared physical laws. Whether these gains extend to virtual worlds with different visual styles, dynamics, controls, and objectives remains unclear. We investigate this question through a controlled study of continued pre-training (CPT) across three axes: data volume, diversity, and model size. Our 120 training configurations span four model sizes from 0.8B to 27B, six data budgets from 50 to 1,600 hours, and five mixtures ranging from Minecraft-only data to diverse multi-world corpora. We assess performance and generalization using three-level validation losses and gameplay benchmarks from in-corpus worlds to unseen worlds. Our results show: (1) more data improves in-corpus performance, diversity improves transfer to related worlds with limited gains in distant worlds, and model size improves data efficiency but generalizes worse to distant worlds under single-world training; (2) we observe an early interface phase with broad cross-world benefits and a later world phase with gains narrowed to in-corpus and related worlds, and fit an empirical scaling law relating validation loss to data volume, diversity and model size; and (3) our models are competitive with Minecraft specialists and frontier models in 3D worlds, and perform best in real-time settings. However, the limits of imitation and persistent gaps in distant worlds suggest that building generalist embodied agents requires richer training stages beyond continued pre-training.</p>
-    </section>
 
     <div class="promo">
       <video class="promo-video" src="videos/promo/promo.mp4" poster="videos/promo/promo.jpg" autoplay muted loop playsinline controls preload="metadata"></video>
@@ -296,9 +291,8 @@
 <pre id="bibtex">@article{zhang-scaling-games,
   title = {Scaling in Games: Continued Pre-Training for Embodied Agents in Diverse Virtual Worlds},
   author = {Zhang, Kuan and Chen, Yukun and Yang, Zhihao and Su, Yue and Wu, Xiangnan and Chen, Zirong and Luo, Run and Hou, Jinkun and Tan, Tao and Zheng, Yinhe and Li, Yiming},
-journal={URL: https://gamescaling.github.io/},
-year={2026}
-
+  journal = {URL: https://gamescaling.github.io/},
+  year = {2026}
 }</pre>
     </div>
   </div>
