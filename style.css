@@ -125,6 +125,9 @@ a:hover { text-decoration: underline; }
 .btn em { font-style: normal; font-weight: 500; font-size: 11px; background: rgba(255,255,255,.18); padding: 1px 7px; border-radius: 999px; }
 .btn.disabled { background: rgba(255,255,255,.14); color: #fff; border: 1px solid rgba(255,255,255,.28); cursor: default; backdrop-filter: blur(6px); }
 
+.daily-paper-support { margin: 14px auto 0; max-width: 860px; color: rgba(255,255,255,.85); font-size: 14px; line-height: 1.6; }
+.daily-paper-support a { color: #fff; font-weight: 600; text-decoration: underline; text-decoration-color: rgba(255,255,255,.5); text-underline-offset: 3px; }
+
 /* promo video sits inside the hero, over the gameplay wall */
 .promo { position: relative; max-width: 880px; margin: 40px auto 0; }
 .promo-video {
