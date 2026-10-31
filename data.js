@@ -297,7 +297,7 @@ window.PAGE_DATA = {
       { id: "gamescaling-2b-s3",   name: "GameScaling-2B-S3",   group: "GameScaling", size: "2B",   latency: 0.16, tokens: 35,
         tp: { mcu: 48.0, vizdoom: 11.2, oga: 13.9, gw: 19.5 }, rt: { mcu: 44.0, vizdoom: 10.4, oga: 12.2, gw: 20.0 } },
       { id: "gamescaling-9b-s3",   name: "GameScaling-9B-S3",   group: "GameScaling", size: "9B",   latency: 0.31, tokens: 39,
-        tp: { mcu: 44.7, vizdoom: 15.9, oga: 27.3, gw: 26.2 }, rt: { mcu: 36.7, vizdoom: 11.9, oga: 20.2, gw: 27.8 } },
+        tp: { mcu: 44.7, vizdoom: 15.9, oga: 27.3, gw: 26.2 }, rt: { mcu: 36.7, vizdoom: 11.5, oga: 20.2, gw: 27.8 } },
       { id: "gamescaling-27b-s3",  name: "GameScaling-27B-S3",  group: "GameScaling", size: "27B",  latency: 0.69, tokens: 36,
         tp: { mcu: 54.0, vizdoom: 14.7, oga: 25.7, gw: 25.3 }, rt: { mcu: 16.7, vizdoom: 6.9, oga: 17.8, gw: 24.8 } }
     ]
