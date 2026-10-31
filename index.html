@@ -188,8 +188,9 @@
       In the <b>real-time</b> setting the game keeps running while the model thinks, so latency becomes part of the score.
       Frontier models take 4–24 s per step; GameScaling takes 0.13–0.69 s.
       Each video is one rollout of the same task, and the label under it reports the result of that rollout: success or failure on MCU (a 30 s budget when paused, 3 min in real time), score or task progress on the other benchmarks.
-      The chart below gives the benchmark averages reported in the paper.
+      The chart below gives the benchmark averages, including the corrected ViZDoom results noted below.
     </p>
+    <p class="muted"><b>ViZDoom correction (November 1, 2026).</b> The real-time scores are updated to <b>11.8</b> for GameScaling-9B-S3 and <b>6.9</b> for GameScaling-27B-S3. The previous values (16.4 and 13.2) used a synchronous protocol that paused the environment, measured model inference time only, and compensated for that duration on the execution side. It was not asynchronous evaluation and excluded image transfer, preprocessing, and action-execution overhead from the compensated duration. The existing demo videos show individual rollouts from the earlier evaluation.</p>
 
     <div class="controls">
       <div class="ctl-rows">
